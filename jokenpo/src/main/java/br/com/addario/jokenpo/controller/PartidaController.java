@@ -20,8 +20,7 @@ import br.com.addario.jokenpo.pojo.Jogador;
 public class PartidaController {
 	private List<Jogador> jogadores = new ArrayList<Jogador>();
 
-	public PartidaController() {
-	}
+	public PartidaController() {}
 
 	public PartidaController(List<Jogador> jogadores) {
 		this.jogadores = jogadores;
@@ -34,8 +33,8 @@ public class PartidaController {
 	}
 
 	@PostMapping
-	public void criaJogador(@RequestBody Jogador jogador) {
-		jogadores.add(jogador);
+	public boolean criaJogador(@RequestBody Jogador jogador) {
+		return jogadores.add(jogador);
 	}
 
 	@DeleteMapping(path = "/{id}")
