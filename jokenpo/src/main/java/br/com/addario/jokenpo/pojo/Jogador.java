@@ -5,13 +5,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import br.com.addario.jokenpo.enums.Jogada;
 
 public class Jogador {
-	
+
 	private static AtomicInteger ID_GENERATOR = new AtomicInteger();
 	private long id;
 
 	private String nome;
 	private Jogada jogada;
 	private boolean venceu;
+	private boolean valido = true;
 
 	public Jogador() {
 		id = ID_GENERATOR.getAndIncrement();
@@ -22,6 +23,7 @@ public class Jogador {
 		id = ID_GENERATOR.getAndIncrement();
 		this.nome = nome;
 		this.venceu = false;
+		this.valido = true;
 	}
 
 	public void setId(long id) {
@@ -54,6 +56,14 @@ public class Jogador {
 
 	public void setVenceu(boolean venceu) {
 		this.venceu = venceu;
+	}
+
+	public void setValido(boolean valido) {
+		this.valido = valido;
+	}
+
+	public boolean isValido() {
+		return valido;
 	}
 
 }
